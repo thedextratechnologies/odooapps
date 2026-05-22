@@ -1,5 +1,5 @@
 {
-    'name': 'Smart GymManagement',
+    'name': 'Smart Gym Management',
     'version': '19.0.1.0.0',
     'license': 'LGPL-3',
     'summary': 'Comprehensive gym management system to manage members, trainers, memberships, workouts and billing operations efficiently. Helps streamline daily gym activities with modern tracking and reporting features.',
