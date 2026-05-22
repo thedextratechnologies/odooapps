@@ -1,0 +1,180 @@
+.gym_dashboard {
+    background: #f8fafc;
+    min-height: 100vh;
+    padding: 10px 12px;
+}
+
+/* HEADER */
+
+.dashboard_header {
+    margin-bottom: 10px !important;
+}
+
+.dashboard_header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 2px;
+}
+
+.dashboard_header p {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 0;
+}
+
+/* KPI CARDS */
+
+.gym_card {
+
+    border-radius: 12px;
+
+    padding: 12px 14px;
+
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    min-height: 82px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+
+    transition: 0.3s;
+}
+
+.gym_card:hover {
+    transform: translateY(-2px);
+}
+
+.gym_card h6 {
+    font-size: 12px;
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: white;
+}
+
+.gym_card h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    color: white;
+}
+
+.gym_card i {
+    font-size: 22px !important;
+    opacity: 0.9;
+    color: white;
+}
+
+/* CHART + TABLE CONTAINER */
+
+.chart_container {
+
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 16px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+
+    height: 100%;
+}
+
+.chart_container h4 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 14px !important;
+    color: #1e293b;
+}
+
+/* CHART SIZE */
+
+.chart_box {
+    height: 140px;
+}
+
+/* TABLE */
+
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    font-size: 15px;
+    padding: 10px !important;
+    font-weight: 600;
+}
+
+.table td {
+    font-size: 15px;
+    padding: 10px !important;
+    vertical-align: middle;
+}
+
+/* BADGES */
+
+.badge {
+    font-size: 13px;
+    padding: 7px 12px;
+    border-radius: 8px;
+}
+
+/* SOFT PASTEL COLORS */
+
+.purple {
+    background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+}
+
+.green {
+    background: linear-gradient(135deg, #4ade80, #22c55e);
+}
+
+.red {
+    background: linear-gradient(135deg, #f87171, #ef4444);
+}
+
+.blue {
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+}
+
+.orange {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+}
+
+.cyan {
+    background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+}
+
+.dark {
+    background: linear-gradient(135deg, #5eead4, #14b8a6);
+}
+
+.success {
+    background: linear-gradient(135deg, #34d399, #10b981);
+}
+
+/* STATUS TABLE BADGE TEXT COLOR */
+
+.bg-success {
+    color: white !important;
+}
+
+.bg-danger {
+    color: white !important;
+}
+
+.bg-primary {
+    color: white !important;
+}
+
+.bg-warning {
+    color: white !important;
+}
+
+.badge {
+    color: white !important;
+    font-weight: 600;
+}

@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_member,gym.member,model_gym_member,,1,1,1,1
+access_membership,gym.membership,model_gym_membership,,1,1,1,1
+access_trainer,gym.trainer,model_gym_trainer,,1,1,1,1
+access_gym_exercise,gym.exercise,model_gym_exercise,,1,1,1,1
+access_workout,gym.workout,model_gym_workout,,1,1,1,1
+access_workout_assign_wizard,access_workout_assign_wizard,model_gym_workout_assign_wizard,,1,1,1,1
+access_gym_equipment_product,gym.equipment.product,product.model_product_template,,1,1,1,1

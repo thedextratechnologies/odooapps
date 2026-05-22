@@ -1,0 +1,30 @@
+<odoo>
+
+    <!-- ACTION -->
+    <record id="gym_exercise_action" model="ir.actions.act_window">
+        <field name="name">Exercises</field>
+        <field name="res_model">gym.exercise</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <!-- TREE VIEW -->
+    <record id="gym_exercise_tree" model="ir.ui.view">
+        <field name="name">gym.exercise.tree</field>
+        <field name="model">gym.exercise</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+
+    <!-- MENU -->
+<!--    <menuitem-->
+<!--        id="menu_gym_exercise"-->
+<!--        name="Exercises"-->
+<!--        parent="menu_gym_workout"-->
+<!--        action="gym_exercise_action"-->
+<!--        sequence="2"/>-->
+
+</odoo>

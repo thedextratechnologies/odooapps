@@ -1,0 +1,11 @@
+<odoo>
+
+    <!-- ACTION -->
+    <record id="action_gym_equipment_products" model="ir.actions.act_window">
+        <field name="name">Gym Equipments</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="domain">[('is_gym_equipment','=',True)]</field>
+        <field name="context">{'default_is_gym_equipment': True}</field>
+    </record>
+</odoo>

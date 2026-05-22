@@ -1,0 +1,16 @@
+<odoo>
+
+    <record id="gym_dashboard_client_action"
+            model="ir.actions.client">
+
+        <field name="name">Gym Dashboard</field>
+        <field name="tag">gym_dashboard_tag</field>
+
+    </record>
+
+     <menuitem id="gym_root_menu"
+              name="Gym Management"
+              action="gym_dashboard_client_action"
+              sequence="1"/>
+
+</odoo>

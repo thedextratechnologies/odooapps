@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <!-- TREE VIEW -->
+
+    <record id="view_gym_payment_report_tree" model="ir.ui.view">
+
+        <field name="name">gym.payment.report.tree</field>
+        <field name="model">account.move</field>
+
+        <field name="arch" type="xml">
+
+            <list string="Payment Reports" create="false">
+
+                <field name="name"/>
+                <field name="invoice_date"/>
+                <field name="partner_id"/>
+                <field name="amount_total"/>
+                <field name="amount_residual"/>
+                <field name="payment_state"/>
+                <field name="state"/>
+
+            </list>
+
+        </field>
+
+    </record>
+
+
+    <!-- SEARCH VIEW -->
+
+    <record id="view_gym_payment_report_search" model="ir.ui.view">
+
+        <field name="name">gym.payment.report.search</field>
+        <field name="model">account.move</field>
+
+        <field name="arch" type="xml">
+
+            <search>
+
+                <field name="name"/>
+                <field name="partner_id"/>
+
+                <filter name="paid"
+                        string="Paid"
+                        domain="[('payment_state','=','paid')]"/>
+
+                <filter name="partial"
+                        string="Partial"
+                        domain="[('payment_state','=','partial')]"/>
+
+                <filter name="not_paid"
+                        string="Not Paid"
+                        domain="[('payment_state','=','not_paid')]"/>
+
+            </search>
+
+        </field>
+
+    </record>
+
+
+    <!-- ACTION -->
+
+    <record id="action_gym_payment_reports"
+            model="ir.actions.act_window">
+
+        <field name="name">Payment Reports</field>
+
+        <field name="res_model">account.move</field>
+
+        <field name="view_mode">list,form</field>
+
+        <field name="domain">
+            [('move_type','=','out_invoice')]
+        </field>
+
+    </record>
+
+
+    <!-- MENU -->
+
+    <menuitem id="menu_gym_reports_root"
+              name="Reports"
+              parent="gym_root_menu"
+              sequence="20"/>
+
+
+    <menuitem id="menu_gym_payment_reports"
+              name="Payment Reports"
+              parent="menu_gym_reports_root"
+              action="action_gym_payment_reports"
+              sequence="1"/>
+
+</odoo>

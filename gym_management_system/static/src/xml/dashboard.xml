@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+
+    <t t-name="gym_management_system.GymDashboard">
+
+        <div class="gym_dashboard container-fluid">
+
+            <!-- HEADER -->
+
+            <div class="dashboard_header mb-4">
+
+                <h1>
+                    Analytics Dashboard
+                </h1>
+
+            </div>
+
+            <!-- KPI CARDS -->
+
+            <div class="row g-3">
+
+                <!-- TOTAL MEMBERS -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="gym_card purple">
+
+                        <div>
+
+                            <h6>Total Members</h6>
+
+                            <h2>
+                                <t t-esc="state.total_members"/>
+                            </h2>
+
+                        </div>
+
+                        <i class="fa fa-users fa-2x"/>
+
+                    </div>
+
+                </div>
+
+                <!-- ACTIVE MEMBERS -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="gym_card green">
+
+                        <div>
+
+                            <h6>Active Members</h6>
+
+                            <h2>
+                                <t t-esc="state.active_members"/>
+                            </h2>
+
+                        </div>
+
+                        <i class="fa fa-check-circle fa-2x"/>
+
+                    </div>
+
+                </div>
+
+                <!-- INACTIVE MEMBERS -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="gym_card red">
+
+                        <div>
+
+                            <h6>Inactive Members</h6>
+
+                            <h2>
+                                <t t-esc="state.inactive_members"/>
+                            </h2>
+
+                        </div>
+
+                        <i class="fa fa-user-times fa-2x"/>
+
+                    </div>
+
+                </div>
+
+                <!-- TRAINERS -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="gym_card blue">
+
+                        <div>
+
+                            <h6>Total Trainers</h6>
+
+                            <h2>
+                                <t t-esc="state.total_trainers"/>
+                            </h2>
+
+                        </div>
+
+                        <i class="fa fa-user-secret fa-2x"/>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- SECOND ROW -->
+
+            <div class="row g-3 mt-1">
+
+                <!-- WORKOUTS -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="gym_card orange">
+
+                        <div>
+
+                            <h6>Total Workouts</h6>
+
+                            <h2>
+                                <t t-esc="state.total_workouts"/>
+                            </h2>
+
+                        </div>
+
+                        <i class="fa fa-heartbeat fa-2x"/>
+
+                    </div>
+
+                </div>
+
+                <!-- MEMBERSHIP -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="gym_card cyan">
+
+                        <div>
+
+                            <h6>Membership Plans</h6>
+
+                            <h2>
+                                <t t-esc="state.total_plans"/>
+                            </h2>
+
+                        </div>
+
+                        <i class="fa fa-id-card fa-2x"/>
+
+                    </div>
+
+                </div>
+
+                <!-- EQUIPMENTS -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="gym_card dark">
+
+                        <div>
+
+                            <h6>Total Equipments</h6>
+
+                            <h2>
+                                <t t-esc="state.total_equipments"/>
+                            </h2>
+
+                        </div>
+
+                        <i class="fa fa-cogs fa-2x"/>
+
+                    </div>
+
+                </div>
+
+                <!-- FULLY PAID -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="gym_card success">
+
+                        <div>
+
+                            <h6>Fully Paid</h6>
+
+                            <h2>
+                                <t t-esc="state.fully_paid_members"/>
+                            </h2>
+
+                        </div>
+
+                        <i class="fa fa-money fa-2x"/>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CHARTS -->
+
+            <div class="row mt-4 g-4">
+
+                <!-- MEMBER CHART -->
+
+                <div class="col-lg-6">
+
+                    <div class="chart_container">
+
+                        <h4 class="mb-3">
+                            Members Overview
+                        </h4>
+
+                        <div style="height:300px;">
+                            <canvas t-ref="memberChart"/>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- PAYMENT CHART -->
+
+                <div class="col-lg-6">
+
+                    <div class="chart_container">
+
+                        <h4 class="mb-3">
+                            Payment Overview
+                        </h4>
+
+                        <div style="height:300px;">
+                            <canvas t-ref="paymentChart"/>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- TABLE VIEWS -->
+
+            <div class="row mt-4 g-4">
+
+                <!-- MEMBER VIEW -->
+
+                <div class="col-lg-6">
+
+                    <div class="chart_container">
+
+                        <h4 class="mb-3">
+                            Member Status View
+                        </h4>
+
+                        <table class="table table-hover">
+
+                            <thead class="table-light">
+
+                                <tr>
+                                    <th>Status</th>
+                                    <th>Total</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        <span class="badge bg-success">
+                                            Active Members
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <strong>
+                                            <t t-esc="state.active_members"/>
+                                        </strong>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        <span class="badge bg-danger">
+                                            Inactive Members
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <strong>
+                                            <t t-esc="state.inactive_members"/>
+                                        </strong>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        <span class="badge bg-primary">
+                                            Total Members
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <strong>
+                                            <t t-esc="state.total_members"/>
+                                        </strong>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+                <!-- PAYMENT VIEW -->
+
+                <div class="col-lg-6">
+
+                    <div class="chart_container">
+
+                        <h4 class="mb-3">
+                            Payment Status View
+                        </h4>
+
+                        <table class="table table-hover">
+
+                            <thead class="table-light">
+
+                                <tr>
+                                    <th>Payment Status</th>
+                                    <th>Total</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        <span class="badge bg-success">
+                                            Fully Paid
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <strong>
+                                            <t t-esc="state.fully_paid_members"/>
+                                        </strong>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        <span class="badge bg-warning text-dark">
+                                            Partially Paid
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <strong>
+                                            <t t-esc="state.partially_paid_members"/>
+                                        </strong>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </t>
+
+</templates>

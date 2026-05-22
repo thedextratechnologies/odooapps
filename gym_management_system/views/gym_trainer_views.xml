@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="gym_trainer_action" model="ir.actions.act_window">
+        <field name="name">Trainers</field>
+        <field name="res_model">gym.trainer</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+
+    <record id="gym_trainer_tree" model="ir.ui.view">
+        <field name="name">gym.trainer.tree</field>
+        <field name="model">gym.trainer</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="specialty"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="gym_trainer_form" model="ir.ui.view">
+        <field name="name">gym.trainer.form</field>
+        <field name="model">gym.trainer</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title d-flex align-items-center mb-4">
+
+                        <field name="image_1920"
+                               widget="image"
+                               class="oe_avatar"
+                               options="{'preview_image': 'image_1920'}"/>
+
+                        <div class="ms-3">
+                            <h1>
+                                <field name="name"
+                                       placeholder="Trainer Name"/>
+                            </h1>
+                        </div>
+
+                    </div>
+                    <group>
+                        <field name="name"/>
+                        <field name="phone"/>
+                        <field name="specialty"/>
+                    </group>
+
+                    <notebook>
+
+                        <page string="Members Details">
+
+                            <group>
+                                <field name="member_count" readonly="1"/>
+                            </group>
+
+                            <field name="member_ids"
+                                   context="{'form_view_ref': False}">
+
+                                <list editable="bottom"
+                                      create="1"
+                                      delete="1">
+
+                                    <field name="name"/>
+                                    <field name="phone"/>
+                                    <field name="membership_id"/>
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                                    <field name="state"/>
+
+                                </list>
+
+                            </field>
+
+                        </page>
+
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="gym_trainer_kanban" model="ir.ui.view">
+        <field name="name">gym.trainer.kanban</field>
+        <field name="model">gym.trainer</field>
+        <field name="arch" type="xml">
+
+            <kanban class="o_kanban_mobile">
+
+                <field name="image_1920"/>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="specialty"/>
+                <field name="member_count"/>
+
+                <templates>
+
+                    <t t-name="card">
+
+                        <div class="oe_kanban_global_click card shadow-sm border-0 rounded-4 p-3"
+                             style="width:320px; min-height:220px; background:#fff;">
+
+                            <!-- HEADER -->
+                            <div class="d-flex align-items-center mb-3">
+
+                                <div class="me-3">
+
+                                    <field name="image_1920"
+                                           widget="image"
+                                           class="rounded-circle"
+                                           options="{'size': [60, 60]}"
+                                           style="width:60px;
+                                              height:60px;
+                                              object-fit:cover;
+                                              border-radius:50%;
+                                              border:2px solid #6f42c1;"/>
+
+                                </div>
+
+                                <div>
+                                    <div style="font-size:18px;
+                                            font-weight:700;
+                                            color:#212529;">
+
+                                        <field name="name"/>
+
+                                    </div>
+
+                                    <div style="font-size:13px;
+                                            color:#6c757d;">
+
+                                        <i class="fa fa-phone me-1"/>
+                                        <field name="phone"/>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- BODY -->
+                            <div class="mb-2">
+                                <strong>Specialty :</strong>
+                                <span class="text-muted">
+                                    <field name="specialty"/>
+                                </span>
+                            </div>
+
+
+                            <div class="mb-2">
+                                <strong>Total Members :</strong>
+                                <span class="text-muted">
+                                    <field name="member_count"/>
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </t>
+
+                </templates>
+
+            </kanban>
+
+        </field>
+    </record>
+</odoo>

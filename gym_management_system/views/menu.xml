@@ -1,0 +1,43 @@
+<odoo>
+
+    <menuitem id="gym_root_menu" name="Gym Management"/>
+
+    <menuitem id="gym_member_menu"
+              name="Members"
+              parent="gym_root_menu"
+              action="gym_member_action"/>
+
+    <menuitem id="gym_membership_menu"
+              name="Membership Plans"
+              parent="gym_root_menu"
+              action="gym_membership_action"/>
+
+    <menuitem id="gym_trainer_menu"
+              name="Trainers"
+              parent="gym_root_menu"
+              action="gym_trainer_action"/>
+
+    <!-- Workouts -->
+    <menuitem id="gym_workout_menu_root"
+              name="Workouts"
+              parent="gym_root_menu"
+              sequence="10"/>
+
+    <menuitem id="gym_workout_menu"
+              name="Workout Plans"
+              parent="gym_workout_menu_root"
+              action="gym_workout_action"/>
+
+    <menuitem id="menu_gym_exercise"
+          name="Exercises"
+          parent="gym_workout_menu_root"
+          action="gym_exercise_action"
+          sequence="2"/>
+
+    <menuitem id="gym_menu_equipment"
+              name="Equipments"
+              parent="gym_root_menu"
+              action="action_gym_equipment_products"
+              sequence="4"/>
+
+</odoo>

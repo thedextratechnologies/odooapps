@@ -1,0 +1,33 @@
+<odoo>
+    <record id="gym_workout_assign_wizard_view" model="ir.ui.view">
+        <field name="name">gym.workout.assign.wizard.form</field>
+        <field name="model">gym.workout.assign.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Assign Workout">
+
+                <group>
+                    <field name="member_id"/>
+                    <field name="trainer_id"/>
+                    <field name="exercise_id" readonly="1"/>
+                    <field name="duration"/>
+                    <field name="description"/>
+                </group>
+
+                <footer>
+                    <button name="action_send_sms"
+                            type="object"
+                            string="Send SMS"
+                            class="btn-primary"/>
+
+                    <button name="action_send_whatsapp"
+                            type="object"
+                            string="Send WhatsApp"
+                            class="btn-success"/>
+
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+
+            </form>
+        </field>
+    </record>
+</odoo>

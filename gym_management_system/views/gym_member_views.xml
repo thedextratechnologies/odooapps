@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <!-- ACTION -->
+    <record id="gym_member_action" model="ir.actions.act_window">
+        <field name="name">Members</field>
+        <field name="res_model">gym.member</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+
+    <!-- TREE VIEW -->
+    <record id="gym_member_tree" model="ir.ui.view">
+        <field name="name">gym.member.tree</field>
+        <field name="model">gym.member</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="membership_id"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- FORM VIEW -->
+
+    <record id="gym_member_form" model="ir.ui.view">
+        <field name="name">gym.member.form</field>
+        <field name="model">gym.member</field>
+        <field name="arch" type="xml">
+
+            <form>
+
+                <header>
+
+                    <button name="action_create_invoice"
+                            type="object"
+                            string="Create Invoice"
+                            class="btn-primary"/>
+
+                    <button name="action_view_invoice"
+                            type="object"
+                            string="Invoices"
+                            class="btn-secondary"
+                            icon="fa-file-text"/>
+
+                    <button name="action_view_payments"
+                            type="object"
+                            string="Payments"
+                            class="btn-secondary"
+                            icon="fa-money"/>
+
+                    <field name="state"
+                           widget="statusbar"
+                           statusbar_visible="draft,invoiced,paid"/>
+
+                </header>
+
+                <sheet>
+
+                    <div class="oe_title mb-3">
+                        <field name="image_1920"
+                               widget="image"
+                               class="oe_avatar"
+                               options="{'preview_image': 'image_1920'}"/>
+                    </div>
+
+                    <group>
+
+                        <group>
+                            <field name="name"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                            <field name="age"/>
+                            <field name="gender"/>
+                        </group>
+
+                        <group>
+                            <field name="membership_id"/>
+                            <field name="trainer_id"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                             <field name="member_status"/>
+                            <field name="state" readonly="1"/>
+                        </group>
+
+                    </group>
+
+                    <notebook>
+
+                        <page string="Measurements">
+                            <group>
+                                <field name="height"/>
+                                <field name="weight"/>
+                                <field name="bmi" readonly="1"/>
+                            </group>
+                        </page>
+
+                        <page string="Other Informations">
+                            <field name="member_history" widget="html"/>
+                        </page>
+
+                    </notebook>
+
+                </sheet>
+
+            </form>
+
+        </field>
+    </record>
+    <!-- KANBAN VIEW -->
+    <record id="gym_member_kanban" model="ir.ui.view">
+        <field name="name">gym.member.kanban</field>
+        <field name="model">gym.member</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="membership_id"/>
+                <field name="trainer_id"/>
+                <field name="state"/>
+                <field name="image_1920"/>
+                <templates>
+                    <t t-name="card">
+
+                        <div class="oe_kanban_global_click card shadow-sm border-0 rounded-4 p-3"
+                             style="width:320px; min-height:220px; background:#ffffff;">
+
+                            <!-- HEADER -->
+                            <div class="d-flex align-items-center mb-3">
+
+                                <div class="me-3">
+
+                                    <field name="image_1920"
+                                           widget="image"
+                                           class="rounded-circle"
+                                           options="{'size': [55, 55]}"
+                                           style="width:55px;
+                  height:55px;
+                  border-radius:50%;
+                  object-fit:cover;
+                  border:2px solid #6f42c1;"/>
+
+                                </div>
+
+                                <div>
+                                    <div style="font-size:18px; font-weight:700; color:#212529;">
+                                        <field name="name"/>
+                                    </div>
+
+                                    <div style="color:#6c757d; font-size:13px;">
+                                        <i class="fa fa-phone me-1"/>
+                                        <field name="phone"/>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- BODY -->
+                            <div class="mb-2">
+                                <span style="font-weight:600;">Email :</span>
+                                <span class="text-muted">
+                                    <field name="email"/>
+                                </span>
+                            </div>
+
+                            <div class="mb-2">
+                                <span style="font-weight:600;">Membership :</span>
+                                <span class="text-muted">
+                                    <field name="membership_id"/>
+                                </span>
+                            </div>
+
+                            <div class="mb-2">
+                                <span style="font-weight:600;">Trainer :</span>
+                                <span class="text-muted">
+                                    <field name="trainer_id"/>
+                                </span>
+                            </div>
+
+                            <div class="mb-3">
+                                <span style="font-weight:600;">BMI :</span>
+                                <span class="text-muted">
+                                    <field name="bmi"/>
+                                </span>
+                            </div>
+
+                            <!-- FOOTER -->
+                            <div class="mt-auto pt-2 border-top">
+
+                                <field name="state"
+                                       widget="badge"
+                                       decoration-success="state == 'active'"
+                                       decoration-warning="state == 'pending'"
+                                       decoration-danger="state == 'expired'"/>
+
+                            </div>
+
+                        </div>
+
+                    </t>
+                </templates>
+
+            </kanban>
+        </field>
+    </record>
+
+
+</odoo>
