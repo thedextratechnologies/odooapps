@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_inventory_indent">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page"
+                         style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; color: #333333; padding: 10px 0px;">
+
+                        <!-- ================= FIRST TABLE: HEADER ================= -->
+                        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; border: 1px solid #d1d5db;">
+                            <tr>
+                                <td style="padding: 15px; width: 75%; vertical-align: middle;">
+                                    <h2 style="margin: 0; font-size: 22px; font-weight: 700; color: #1a252f; letter-spacing: 0.5px;">
+                                        INDENT FORM
+                                    </h2>
+                                    <div style="margin-top: 4px; color: #7f8c8d; font-size: 11px;">
+                                        Material Requisition &amp; Request Report
+                                    </div>
+                                </td>
+                                <td style="padding: 15px; width: 25%; text-align: right; vertical-align: middle; border-left: 1px solid #d1d5db; background-color: #f9fafb;">
+                                    <span style="font-size: 11px; font-weight: 600; color: #7f8c8d; display: block; margin-bottom: 2px; text-transform: uppercase;">
+                                        Status
+                                    </span>
+                                    <span style="font-size: 14px; font-weight: 700; color: #1a252f; text-transform: uppercase;">
+                                        <span t-field="o.state"/>
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- ================= SECOND TABLE: METADATA GRID ================= -->
+                        <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px; border: 1px solid #d1d5db;">
+                            <tr>
+                                <td style="width: 15%; padding: 9px 10px; font-weight: 600; color: #4b5563; background-color: #f9fafb; border-bottom: 1px solid #d1d5db;">
+                                    Indent No:
+                                </td>
+                                <td style="width: 35%; padding: 9px 10px; font-weight: 700; color: #1a252f; border-bottom: 1px solid #d1d5db; border-right: 1px solid #d1d5db;">
+                                    <span t-field="o.name"/>
+                                </td>
+                                <td style="width: 15%; padding: 9px 10px; font-weight: 600; color: #4b5563; background-color: #f9fafb; border-bottom: 1px solid #d1d5db;">
+                                    Date:
+                                </td>
+                                <td style="width: 35%; padding: 9px 10px; color: #1a252f; border-bottom: 1px solid #d1d5db;">
+                                    <span t-field="o.date"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 9px 10px; font-weight: 600; color: #4b5563; background-color: #f9fafb; border-bottom: 1px solid #d1d5db;">
+                                    Department:
+                                </td>
+                                <td style="padding: 9px 10px; color: #1a252f; border-bottom: 1px solid #d1d5db; border-right: 1px solid #d1d5db;">
+                                    <span t-field="o.department_id"/>
+                                </td>
+                                <td style="padding: 9px 10px; font-weight: 600; color: #4b5563; background-color: #f9fafb; border-bottom: 1px solid #d1d5db;">
+                                    Requested By:
+                                </td>
+                                <td style="padding: 9px 10px; color: #1a252f; border-bottom: 1px solid #d1d5db;">
+                                    <span t-field="o.requested_by"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 9px 10px; font-weight: 600; color: #4b5563; background-color: #f9fafb; border-bottom: 1px solid #d1d5db;">
+                                    Warehouse:
+                                </td>
+                                <td style="padding: 9px 10px; color: #1a252f; border-bottom: 1px solid #d1d5db; border-right: 1px solid #d1d5db;">
+                                    <span t-field="o.warehouse_id"/>
+                                </td>
+                                <td style="padding: 9px 10px; font-weight: 600; color: #4b5563; background-color: #f9fafb; border-bottom: 1px solid #d1d5db;">
+                                    Total Quantity:
+                                </td>
+                                <td style="padding: 9px 10px; font-weight: 700; color: #1a252f; border-bottom: 1px solid #d1d5db;">
+                                    <span t-field="o.total_qty"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 9px 10px; font-weight: 600; color: #4b5563; background-color: #f9fafb;">
+                                    Src Location:
+                                </td>
+                                <td style="padding: 9px 10px; color: #1a252f; border-right: 1px solid #d1d5db;">
+                                    <span t-field="o.location_id"/>
+                                </td>
+                                <td style="padding: 9px 10px; font-weight: 600; color: #4b5563; background-color: #f9fafb;">
+                                    Dest Location:
+                                </td>
+                                <td style="padding: 9px 10px; color: #1a252f;">
+                                    <span t-field="o.destination_location_id"/>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- ================= THIRD TABLE: LINE ITEMS ================= -->
+                        <table style="width: 100%; border-collapse: collapse; margin-bottom: 40px; border: 1px solid #d1d5db;">
+                            <thead>
+                                <tr style="background-color: #f8fafc; border-bottom: 2px solid #cbd5e1; color: #1a252f;">
+                                    <th style="padding: 10px; text-align: center; width: 8%; font-weight: 600; border-right: 1px solid #d1d5db;">
+                                        S/No
+                                    </th>
+                                    <th style="padding: 10px; text-align: left; width: 44%; font-weight: 600; border-right: 1px solid #d1d5db;">
+                                        Product
+                                    </th>
+                                    <th style="padding: 10px; text-align: right; width: 12%; font-weight: 600; border-right: 1px solid #d1d5db;">
+                                        Available
+                                    </th>
+                                    <th style="padding: 10px; text-align: right; width: 12%; font-weight: 600; border-right: 1px solid #d1d5db;">
+                                        Requested
+                                    </th>
+                                    <th style="padding: 10px; text-align: right; width: 12%; font-weight: 600; border-right: 1px solid #d1d5db;">
+                                        Approved
+                                    </th>
+                                    <th style="padding: 10px; text-align: center; width: 12%; font-weight: 600;">UOM
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.line_ids" t-as="line">
+                                    <tr style="border-bottom: 1px solid #e5e7eb;">
+                                        <td style="padding: 10px; text-align: center; color: #6b7280; border-right: 1px solid #d1d5db;">
+                                            <span t-esc="line_index + 1"/>
+                                        </td>
+                                        <td style="padding: 10px; font-weight: 500; color: #111827; border-right: 1px solid #d1d5db;">
+                                            <span t-field="line.product_id"/>
+                                            <t t-if="line.description">
+                                                <div style="font-size: 11px; color: #6b7280; margin-top: 2px;">
+                                                    <span t-field="line.description"/>
+                                                </div>
+                                            </t>
+                                        </td>
+                                        <td style="padding: 10px; text-align: right; color: #374151; border-right: 1px solid #d1d5db;">
+                                            <span t-field="line.available_qty"/>
+                                        </td>
+                                        <td style="padding: 10px; text-align: right; font-weight: 600; color: #111827; border-right: 1px solid #d1d5db;">
+                                            <span t-field="line.quantity"/>
+                                        </td>
+                                        <td style="padding: 10px; text-align: right; font-weight: 600; color: #16a34a; border-right: 1px solid #d1d5db;">
+                                            <span t-field="line.approved_qty"/>
+                                        </td>
+                                        <td style="padding: 10px; text-align: center; color: #6b7280;">
+                                            <span t-field="line.uom_id"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <!-- ================= FOURTH TABLE: SIGNATURES ================= -->
+                        <table style="width: 100%; border-collapse: collapse; margin-top: 20px; border: 1px solid #d1d5db;">
+                            <tr>
+                                <td style="width: 33.33%; text-align: center; vertical-align: bottom; padding: 25px 10px 15px 10px; border-right: 1px solid #d1d5db;">
+                                    <div style="color: #2c3e50; font-size: 13px; font-weight: 500; margin-bottom: 15px; min-height: 35px; display: block;">
+                                        <t t-if="o.create_uid.signature">
+                                            <span t-field="o.create_uid.signature"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="o.create_uid.name"/>
+                                        </t>
+                                    </div>
+                                    <div style="border-top: 1px dashed #cbd5e1; margin: 0 15px; padding-top: 6px;">
+                                        <span style="font-weight: 700; font-size: 11px; color: #4b5563; text-transform: uppercase; letter-spacing: 0.5px;">
+                                            Requested By
+                                        </span>
+                                    </div>
+                                </td>
+
+                                <td style="width: 33.33%; text-align: center; vertical-align: bottom; padding: 25px 10px 15px 10px; border-right: 1px solid #d1d5db;">
+                                    <div style="color: #2c3e50; font-size: 13px; font-weight: 500; margin-bottom: 15px; min-height: 35px; display: block;">
+                                        <t t-if="o.write_uid.signature">
+                                            <span t-field="o.write_uid.signature"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="o.write_uid.name"/>
+                                        </t>
+                                    </div>
+                                    <div style="border-top: 1px dashed #cbd5e1; margin: 0 15px; padding-top: 6px;">
+                                        <span style="font-weight: 700; font-size: 11px; color: #4b5563; text-transform: uppercase; letter-spacing: 0.5px;">
+                                            Approved By
+                                        </span>
+                                    </div>
+                                </td>
+
+                                <td style="width: 33.33%; text-align: center; vertical-align: bottom; padding: 25px 10px 15px 10px;">
+                                    <t t-set="admin_user" t-value="env['res.users'].browse(2)"/>
+                                    <div style="color: #2c3e50; font-size: 13px; font-weight: 500; margin-bottom: 15px; min-height: 35px; display: block;">
+                                        <t t-if="admin_user.signature">
+                                            <span t-field="admin_user.signature"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-esc="admin_user.name"/>
+                                        </t>
+                                    </div>
+                                    <div style="border-top: 1px dashed #cbd5e1; margin: 0 15px; padding-top: 6px;">
+                                        <span style="font-weight: 700; font-size: 11px; color: #4b5563; text-transform: uppercase; letter-spacing: 0.5px;">
+                                            Store Incharge
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

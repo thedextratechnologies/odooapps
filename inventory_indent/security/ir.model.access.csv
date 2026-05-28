@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_inventory_indent_user,inventory.indent.user,model_inventory_indent,base.group_user,1,1,1,1
+access_inventory_indent_line_user,inventory.indent.line.user,model_inventory_indent_line,base.group_user,1,1,1,1

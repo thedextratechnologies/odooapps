@@ -1,0 +1,38 @@
+{
+    'name': 'Inventory Indent Management',
+    'version': '19.0.1.0.0',
+    'summary': 'Manage internal inventory indent requests with approval workflow, stock tracking, and department-wise material management in Odoo.',
+    'description': 'Manage Inventory Indent Requests with Approval Workflow',
+    'category': 'Inventory/Inventory',
+    'author': 'Dextra Technologies',
+    'license': 'OPL-1',
+    'price': 40.0,
+    'currency': 'USD',
+    'depends': [
+        'stock',
+        'mail',
+        'hr',
+        'mail',
+        'web',
+    ],
+    'data': [
+        'security/security.xml',
+        'security/ir.model.access.csv',
+        'data/sequence.xml',
+        'data/mail_template.xml',
+        'views/indent_views.xml',
+        'views/menu.xml',
+        # 'views/assets.xml',
+        'views/res_config_settings_view.xml',
+        'report/indent_report.xml',
+        'report/indent_report_template.xml',
+    ],
+    'assets': {
+        'web.assets_backend': [
+            'inventory_indent/static/src/scss/theme.scss',
+        ],
+    },
+    'images': ['static/description/banner.gif'],
+    'application': False,
+    'installable': True,
+}

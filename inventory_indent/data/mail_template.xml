@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- REQUEST MAIL -->
+
+    <record id="email_template_inventory_indent_request"
+            model="mail.template">
+
+        <field name="name">
+            Inventory Indent Request
+        </field>
+
+        <field name="model_id"
+               ref="model_inventory_indent"/>
+
+        <field name="subject">
+            Inventory Indent Request - {{ object.name }}
+        </field>
+
+        <field name="email_from">
+            {{ user.email_formatted }}
+        </field>
+
+        <field name="email_to">
+            {{ object.create_uid.email }}
+        </field>
+
+        <field name="body_html" type="html">
+
+            <div style="font-family:Arial;
+                        font-size:14px;">
+
+                <p>Hello,</p>
+
+                <p>
+                    New Inventory Indent Request Created.
+                </p>
+
+                <table style="border-collapse:collapse;
+                              width:100%;">
+
+                    <tr>
+                        <td style="padding:6px;
+                                   border:1px solid #ccc;">
+                            <strong>Indent No</strong>
+                        </td>
+
+                        <td style="padding:6px;
+                                   border:1px solid #ccc;">
+                            {{ object.name }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding:6px;
+                                   border:1px solid #ccc;">
+                            <strong>Department</strong>
+                        </td>
+
+                        <td style="padding:6px;
+                                   border:1px solid #ccc;">
+                            {{ object.department_id.name }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding:6px;
+                                   border:1px solid #ccc;">
+                            <strong>Status</strong>
+                        </td>
+
+                        <td style="padding:6px;
+                                   border:1px solid #ccc;">
+                            {{ object.state }}
+                        </td>
+                    </tr>
+
+                </table>
+
+                <br/>
+
+                <p>
+                    Regards,
+                    <br/>
+                    Inventory Team
+                </p>
+
+            </div>
+
+        </field>
+
+    </record>
+
+    <!-- APPROVED MAIL -->
+
+    <record id="email_template_inventory_indent_approved"
+            model="mail.template">
+
+        <field name="name">
+            Inventory Indent Approved
+        </field>
+
+        <field name="model_id"
+               ref="model_inventory_indent"/>
+
+        <field name="subject">
+            Inventory Indent Approved - {{ object.name }}
+        </field>
+
+        <field name="email_from">
+            {{ user.email_formatted }}
+        </field>
+
+        <field name="email_to">
+            {{ object.create_uid.email }}
+        </field>
+
+        <field name="body_html" type="html">
+
+            <div style="font-family:Arial;
+                        font-size:14px;">
+
+                <p>Hello,</p>
+
+                <p>
+                    Your Inventory Indent has been Approved.
+                </p>
+
+                <table style="border-collapse:collapse;
+                              width:100%;">
+
+                    <tr>
+                        <td style="padding:6px;
+                                   border:1px solid #ccc;">
+                            <strong>Indent No</strong>
+                        </td>
+
+                        <td style="padding:6px;
+                                   border:1px solid #ccc;">
+                            {{ object.name }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding:6px;
+                                   border:1px solid #ccc;">
+                            <strong>Status</strong>
+                        </td>
+
+                        <td style="padding:6px;
+                                   border:1px solid #ccc;">
+                            {{ object.state }}
+                        </td>
+                    </tr>
+
+                </table>
+
+                <br/>
+
+                <p>
+                    Regards,
+                    <br/>
+                    Inventory Team
+                </p>
+
+            </div>
+
+        </field>
+
+    </record>
+
+</odoo>

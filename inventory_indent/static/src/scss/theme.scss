@@ -1,0 +1,509 @@
+/* =========================================
+   TEXT COLOR FIX ONLY
+   KEEP ALIGNMENT SAME
+========================================= */
+
+/* TABLE HEADER TEXT */
+
+.o_list_table thead th,
+.o_list_renderer thead th,
+.table thead th {
+    color: #111111 !important;
+}
+
+/* FORM LABELS */
+
+.o_form_view .o_form_label,
+.o_form_view label {
+    color: #222222 !important;
+    font-weight: 500;
+}
+
+/* TABLE BODY TEXT */
+
+.o_list_table td,
+.table td {
+    color: #2b2b2b !important;
+}
+
+/* INPUT TEXT */
+
+.o_input,
+.form-control,
+input,
+textarea,
+select {
+    color: #222 !important;
+}
+
+/* PLACEHOLDER */
+
+::placeholder {
+    color: #888 !important;
+}
+
+/* NOTEBOOK TABS */
+
+.nav-tabs .nav-link {
+    color: #444 !important;
+}
+
+.nav-tabs .nav-link.active {
+    color: white !important;
+}
+
+/* ONE2MANY TABLE HEADER */
+
+.o_field_x2many .table thead th {
+    color: #111 !important;
+    font-weight: 600;
+}
+
+/* SALES ORDER PRODUCT TABLE FIX */
+
+.o_field_x2many .o_list_table thead th {
+    background: rgba(255,255,255,0.75) !important;
+    color: #111 !important;
+}
+
+/* KANBAN TEXT */
+
+.o_kanban_record,
+.o_kanban_record * {
+    color: #222 !important;
+}
+
+/* FORM TITLE */
+
+.o_form_view .oe_title h1,
+.o_form_view .oe_title h2 {
+    color: #111 !important;
+}
+
+/* CHATTER TEXT */
+
+.o-mail-Chatter,
+.o-mail-Chatter * {
+    color: #333 !important;
+}
+
+/* DROPDOWN TEXT */
+
+.dropdown-menu .dropdown-item {
+    color: #222 !important;
+}
+
+/* STATUSBAR TEXT */
+
+.o_statusbar_status .o_arrow_button_text {
+    color: #444 !important;
+}
+
+/* ACTIVE STATUS */
+
+.o_statusbar_status .btn-primary .o_arrow_button_text {
+    color: white !important;
+}
+
+
+/* =========================================
+   PREMIUM ERP GLASS THEME
+   ODOO 19 SAFE VERSION
+========================================= */
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+$o-primary: #875A7B;
+$o-secondary: #6C63FF;
+
+$bg-light: #f4efff;
+
+$text-dark: #2b2b2b;
+
+$glass:
+    rgba(255,255,255,0.72);
+
+$glass-border:
+    rgba(255,255,255,0.35);
+
+$shadow:
+    0 8px 24px rgba(0,0,0,0.06);
+
+/* =========================================
+   BODY
+========================================= */
+
+body.o_web_client {
+    background:
+        linear-gradient(
+            135deg,
+            #f4efff 0%,
+            #efe8ff 45%,
+            #ffffff 100%
+        ) !important;
+
+    font-family: "Inter", sans-serif;
+
+    color: $text-dark !important;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.o_main_navbar {
+    background:
+        linear-gradient(
+            90deg,
+            #875A7B,
+            #6C63FF
+        ) !important;
+
+    border: none !important;
+
+    box-shadow:
+        0 3px 14px rgba(0,0,0,0.08);
+}
+
+/* Navbar Text */
+
+.o_main_navbar * {
+    color: white !important;
+}
+
+/* =========================================
+   CONTENT AREA
+========================================= */
+
+.o_action_manager {
+    padding: 14px !important;
+}
+
+/* =========================================
+   CONTROL PANEL
+========================================= */
+
+.o_control_panel {
+    background:
+        rgba(255,255,255,0.55) !important;
+
+    backdrop-filter: blur(14px);
+
+    border-radius: 18px;
+
+    padding: 12px 16px !important;
+
+    margin-bottom: 16px;
+
+    border:
+        1px solid rgba(255,255,255,0.35);
+
+    box-shadow:
+        $shadow;
+}
+
+/* =========================================
+   FORM SHEET
+========================================= */
+
+.o_form_sheet_bg {
+    background: transparent !important;
+}
+
+/* Main Form */
+
+.o_form_view .o_form_sheet {
+    background:
+        rgba(255,255,255,0.72) !important;
+
+    backdrop-filter: blur(18px);
+
+    border-radius: 22px !important;
+
+    border:
+        1px solid $glass-border;
+
+    box-shadow:
+        $shadow;
+
+    padding: 24px !important;
+}
+
+/* =========================================
+   NOTEBOOK TABS
+========================================= */
+
+.nav-tabs {
+    border-bottom: none !important;
+}
+
+.nav-tabs .nav-link {
+    border-radius: 12px 12px 0 0 !important;
+
+    color: #555 !important;
+
+    border: none !important;
+}
+
+.nav-tabs .nav-link.active {
+    background:
+        linear-gradient(
+            135deg,
+            #875A7B,
+            #6C63FF
+        ) !important;
+
+    color: white !important;
+}
+
+/* =========================================
+   STATUSBAR
+========================================= */
+
+.o_statusbar_status {
+    background:
+        rgba(255,255,255,0.55) !important;
+
+    border-radius: 14px;
+
+    padding: 4px;
+}
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.o_input,
+.form-control {
+    background:
+        rgba(255,255,255,0.80) !important;
+
+    border:
+        1px solid rgba(0,0,0,0.06) !important;
+
+    border-radius: 12px !important;
+
+    min-height: 40px !important;
+
+    color: #2b2b2b !important;
+}
+
+/* Focus */
+
+.o_input:focus,
+.form-control:focus {
+    border-color:
+        #875A7B !important;
+
+    box-shadow:
+        0 0 0 0.15rem rgba(135,90,123,0.16) !important;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.btn-primary {
+    background:
+        linear-gradient(
+            135deg,
+            #875A7B,
+            #6C63FF
+        ) !important;
+
+    border: none !important;
+
+    border-radius: 12px !important;
+
+    color: white !important;
+
+    box-shadow:
+        0 5px 16px rgba(108,99,255,0.22);
+}
+
+/* =========================================
+   LIST VIEW
+========================================= */
+
+.o_list_renderer {
+    background:
+        rgba(255,255,255,0.65);
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        $shadow;
+}
+
+/* Table Header */
+
+.o_list_table thead {
+    background:
+        linear-gradient(
+            135deg,
+            #875A7B,
+            #6C63FF
+        ) !important;
+}
+
+/* Header */
+
+.o_list_table thead th {
+    color: white !important;
+
+    border: none !important;
+
+    padding: 14px !important;
+}
+
+/* Table Cells */
+
+.o_list_table td {
+    color: #2b2b2b !important;
+
+    padding: 12px 14px !important;
+
+    vertical-align: middle !important;
+}
+
+/* Row Hover */
+
+.o_list_table tbody tr:hover {
+    background:
+        rgba(135,90,123,0.06) !important;
+}
+
+/* =========================================
+   SEARCH BAR
+========================================= */
+
+.o_searchview {
+    background:
+        rgba(255,255,255,0.75) !important;
+
+    border-radius: 14px !important;
+
+    border:
+        1px solid rgba(0,0,0,0.04);
+
+    padding:
+        4px 12px !important;
+}
+
+/* =========================================
+   KANBAN
+========================================= */
+
+.o_kanban_record {
+    background:
+        rgba(255,255,255,0.72) !important;
+
+    border-radius: 18px !important;
+
+    border:
+        1px solid rgba(255,255,255,0.35);
+
+    box-shadow:
+        $shadow;
+
+    transition:
+        all 0.3s ease;
+}
+
+/* Hover */
+
+.o_kanban_record:hover {
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 12px 28px rgba(108,99,255,0.14);
+}
+
+/* =========================================
+   CHATTER
+========================================= */
+
+.o_Chatter {
+    background:
+        rgba(255,255,255,0.55) !important;
+
+    border-left:
+        1px solid rgba(255,255,255,0.35);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+/* =========================================
+   LABELS
+========================================= */
+
+label,
+.o_form_label {
+    color:
+        #2b2b2b !important;
+
+    font-weight:
+        600;
+}
+
+/* =========================================
+   DROPDOWNS
+========================================= */
+
+.dropdown-menu {
+    background:
+        rgba(255,255,255,0.80) !important;
+
+    backdrop-filter:
+        blur(18px);
+
+    border-radius:
+        16px !important;
+
+    border:
+        1px solid rgba(255,255,255,0.35);
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,0.08);
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background:
+        linear-gradient(
+            180deg,
+            #875A7B,
+            #6C63FF
+        );
+
+    border-radius:
+        10px;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .o_form_view .o_form_sheet {
+        padding: 16px !important;
+    }
+
+    .o_control_panel {
+        padding: 10px !important;
+    }
+}

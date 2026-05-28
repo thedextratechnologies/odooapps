@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ACTION -->
+
+    <record id="action_inventory_indent" model="ir.actions.act_window">
+        <field name="name">Inventory Indent</field>
+        <field name="res_model">inventory.indent</field>
+        <field name="view_mode">list,form,kanban</field>
+        <field name="search_view_id" ref="view_inventory_indent_search"/>
+    </record>
+
+    <!-- DRAFT ACTION -->
+
+    <record id="action_inventory_indent_draft" model="ir.actions.act_window">
+        <field name="name">Draft Indents</field>
+        <field name="res_model">inventory.indent</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('state','=','draft')]</field>
+    </record>
+
+    <!-- APPROVED ACTION -->
+
+    <record id="action_inventory_indent_approved" model="ir.actions.act_window">
+        <field name="name">Approved Indents</field>
+        <field name="res_model">inventory.indent</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('state','=','approved')]</field>
+    </record>
+
+    <!-- DONE ACTION -->
+
+    <record id="action_inventory_indent_done" model="ir.actions.act_window">
+        <field name="name">Completed Indents</field>
+        <field name="res_model">inventory.indent</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('state','=','done')]</field>
+    </record>
+
+    <!-- ROOT MENU -->
+
+    <menuitem id="menu_inventory_indent_root"
+              name="Indent Management"
+              parent="stock.menu_stock_root"
+              sequence="50"/>
+
+    <!-- MAIN MENU -->
+
+    <menuitem id="menu_inventory_indent"
+              name="Indent Requests"
+              parent="menu_inventory_indent_root"
+              action="action_inventory_indent"
+              sequence="1"/>
+
+    <!-- SUB MENUS -->
+
+    <menuitem id="menu_inventory_indent_draft"
+              name="Draft Indents"
+              parent="menu_inventory_indent_root"
+              action="action_inventory_indent_draft"
+              sequence="2"/>
+
+    <menuitem id="menu_inventory_indent_approved"
+              name="Approved Indents"
+              parent="menu_inventory_indent_root"
+              action="action_inventory_indent_approved"
+              sequence="3"/>
+
+    <menuitem id="menu_inventory_indent_done"
+              name="Completed Indents"
+              parent="menu_inventory_indent_root"
+              action="action_inventory_indent_done"
+              sequence="4"/>
+
+</odoo>

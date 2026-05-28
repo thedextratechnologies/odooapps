@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_inventory_indent_res_config_settings"
+            model="ir.ui.view">
+
+        <field name="name">inventory.indent.res.config.settings</field>
+
+        <field name="model">res.config.settings</field>
+
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+
+        <field name="arch"
+               type="xml">
+
+            <xpath expr="//form"
+                   position="inside">
+
+                <app string="Inventory Indent"
+                     name="inventory_indent_settings">
+
+                    <block title="Indent Notifications">
+
+                        <setting string="Enable Email Notifications">
+
+                            <field name="enable_indent_email"/>
+
+                        </setting>
+
+                        <setting string="Enable SMS Notifications">
+
+                            <field name="enable_indent_sms"/>
+
+                        </setting>
+
+                        <setting string="Indent Managers">
+
+                            <field name="indent_manager_ids"
+                                   widget="many2many_tags"/>
+
+                        </setting>
+
+                    </block>
+
+                </app>
+
+            </xpath>
+
+        </field>
+
+    </record>
+
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- USER GROUP -->
+
+    <record id="group_inventory_indent_user" model="res.groups">
+        <field name="name">Inventory Indent User</field>
+    </record>
+
+    <!-- MANAGER GROUP -->
+
+    <record id="group_inventory_indent_manager" model="res.groups">
+        <field name="name">Inventory Indent Manager</field>
+
+        <field name="implied_ids"
+               eval="[(4, ref('inventory_indent.group_inventory_indent_user'))]"/>
+    </record>
+
+</odoo>

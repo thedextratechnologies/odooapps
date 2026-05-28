@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="action_report_inventory_indent" model="ir.actions.report">
+        <field name="name">Inventory Indent</field>
+        <field name="model">inventory.indent</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">inventory_indent.report_inventory_indent</field>
+        <field name="report_file">inventory_indent.report_inventory_indent</field>
+        <field name="binding_model_id" ref="model_inventory_indent"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
+    

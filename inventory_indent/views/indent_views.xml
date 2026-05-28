@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <!-- TREE VIEW -->
+
+    <record id="view_inventory_indent_tree" model="ir.ui.view">
+        <field name="name">inventory.indent.tree</field>
+        <field name="model">inventory.indent</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="department_id"/>
+                <field name="warehouse_id"/>
+                <field name="requested_by"/>
+                <field name="total_qty"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- FORM VIEW -->
+
+    <record id="view_inventory_indent_form" model="ir.ui.view">
+        <field name="name">inventory.indent.form</field>
+        <field name="model">inventory.indent</field>
+        <field name="arch" type="xml">
+            <form string="Inventory Indent">
+
+                <header>
+
+                    <button name="action_submit"
+                            string="Submit"
+                            type="object"
+                            class="btn-primary"
+                            invisible="state != 'draft'"/>
+
+                    <button name="action_approve"
+                            string="Approve"
+                            type="object"
+                            class="btn-success"
+                            invisible="state != 'submitted'"
+                            groups="inventory_indent.group_inventory_indent_manager"/>
+
+                    <button name="action_done"
+                            string="Validate Transfer"
+                            type="object"
+                            class="btn-success"
+                            invisible="state != 'approved'"/>
+
+                    <button name="action_cancel"
+                            string="Cancel"
+                            type="object"
+                            invisible="state == 'done' or state == 'cancel'"/>
+
+                    <button name="action_reset_draft"
+                            string="Reset to Draft"
+                            type="object"
+                            invisible="state != 'cancel'"/>
+
+                    <field name="state" widget="statusbar"/>
+
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="requested_by"/>
+                            <field name="department_id"/>
+                        </group>
+                        <group>
+                            <field name="warehouse_id"/>
+                            <field name="location_id"/>
+                            <field name="destination_location_id"/>
+                            <field name="picking_id" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Products">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="description"/>
+                                    <field name="available_qty" readonly="1"/>
+                                    <field name="quantity"/>
+                                    <field name="approved_qty"/>
+                                    <field name="uom_id" readonly="1"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes">
+                            <field name="message_follower_ids"/>
+                            <field name="activity_ids"/>
+                            <field name="message_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_indent_request_kanban" model="ir.ui.view">
+        <field name="name">inventory.indent.kanban</field>
+        <field name="model">inventory.indent</field>
+
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+
+                <field name="name"/>
+                <field name="requested_by"/>
+                <field name="date"/>
+                <field name="warehouse_id"/>
+                <field name="location_id"/>
+                <field name="destination_location_id"/>
+                <field name="state"/>
+
+                <templates>
+
+                    <t t-name="card">
+
+                        <div class="oe_kanban_card o_indent_card p-3">
+
+                            <div class="mb-2">
+                                <strong>
+                                    <field name="name"/>
+                                </strong>
+                            </div>
+
+                            <div class="mb-1">
+                                <strong>Requested By:</strong>
+                                <field name="requested_by"/>
+                            </div>
+
+                            <div class="mb-1">
+                                <strong>Date:</strong>
+                                <field name="date"/>
+                            </div>
+
+                            <div class="mb-1">
+                                <strong>Warehouse:</strong>
+                                <field name="warehouse_id"/>
+                            </div>
+
+                            <div class="mb-1">
+                                <strong>Source:</strong>
+                                <field name="location_id"/>
+                            </div>
+
+                            <div class="mb-1">
+                                <strong>Destination:</strong>
+                                <field name="destination_location_id"/>
+                            </div>
+
+                            <div class="mt-2">
+                                <field name="state"/>
+                            </div>
+
+                        </div>
+
+                    </t>
+
+                </templates>
+
+            </kanban>
+        </field>
+    </record>
+
+    <!-- SEARCH VIEW -->
+
+    <record id="view_inventory_indent_search" model="ir.ui.view">
+        <field name="name">inventory.indent.search</field>
+        <field name="model">inventory.indent</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="department_id"/>
+                <field name="warehouse_id"/>
+                <filter string="Draft" name="draft"
+                        domain="[('state','=','draft')]"/>
+                <filter string="Submitted" name="submitted"
+                        domain="[('state','=','submitted')]"/>
+                <filter string="Approved" name="approved"
+                        domain="[('state','=','approved')]"/>
+                <filter string="Done" name="done"
+                        domain="[('state','=','done')]"/>
+            </search>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="seq_inventory_indent" model="ir.sequence">
+        <field name="name">Inventory Indent</field>
+        <field name="code">inventory.indent</field>
+        <field name="prefix">IND/</field>
+        <field name="padding">5</field>
+    </record>
+
+</odoo>
