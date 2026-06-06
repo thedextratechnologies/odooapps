@@ -6,7 +6,7 @@
     'category': 'Inventory/Inventory',
     'author': 'Dextra Technologies',
     'license': 'OPL-1',
-    'price': 40.0,
+    'price': 149.0,
     'currency': 'USD',
     'depends': [
         'stock',
