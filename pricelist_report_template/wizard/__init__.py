@@ -1,0 +1,1 @@
+from . import save_pricelist_wizard

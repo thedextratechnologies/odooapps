@@ -1,0 +1,135 @@
+<odoo>
+    <!-- WITH VARIANTS -->
+    <record id="report_pricelist_with_variants" model="ir.actions.report">
+        <field name="name">Pricelist With Variants</field>
+        <field name="model">product.pricelist</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sale_order_discount_approval.peralloy_pricelist_final</field>
+        <field name="report_file">sale_order_discount_approval.peralloy_pricelist_final</field>
+    </record>
+
+    <template id="peralloy_pricelist_final"
+              inherit_id="product.report_pricelist_page">
+
+
+
+
+        <!-- ================= HIDE DEFAULT HEADER SPACE ================= -->
+        <xpath expr="//h2" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+
+        <!-- ================= HEADER INSERT ================= -->
+        <xpath expr="//table[contains(@class,'table-sm')]" position="before">
+
+            <!-- ORANGE HEADER -->
+            <table style="width:100%; margin:20px 0; border:none;">
+                <tr>
+
+                    <!-- LEFT BOX -->
+                    <td style="width:60%; vertical-align:top;">
+                        <div style="background:#e56f2d; color:white; padding:16px;">
+                            <div style="font-size:22px; font-weight:bold;">
+
+                                <b>Price List:</b>
+                                <t t-esc="pricelist.pricelist_name or ''"/>
+                            </div>
+
+                            <div>
+                                <b>Document No:</b>
+                                <t t-esc="pricelist.document_no or ''"/>
+                            </div>
+
+                            <div>
+                                <b>Customer Name:</b>
+                                <t t-esc="pricelist.customer_name or ''"/>
+                            </div>
+                        </div>
+                    </td>
+
+                    <!-- RIGHT LOGO -->
+                    <td style="width:40%; text-align:right; padding-top:10px; padding-right:30px;">
+                        <img t-if="env.company.logo"
+                                     t-att-src="image_data_uri(env.company.logo)"
+                                     style="max-height:90px;"/>
+                    </td>
+
+                </tr>
+            </table>
+
+            <!-- CONFIDENTIAL NOTE -->
+            <div style="background:#d9d9d9; padding:10px; margin-bottom:15px; font-size:12px;">
+                <b>CONFIDENTIAL –</b>
+                <t t-esc="pricelist.confidential_note or
+                'For authorized recipients only. Pricing, product availability, and specifications are subject to change without prior notice.'"/>
+            </div>
+
+        </xpath>
+
+
+        <!-- ================= TABLE REPLACE ================= -->
+        <xpath expr="//table[contains(@class,'table-sm')]" position="replace">
+
+            <table class="table table-sm">
+
+                <!-- HEADER -->
+                <thead>
+                    <tr>
+                        <th rowspan="2">Products</th>
+                        <th rowspan="2">UOM</th>
+                        <th class="text-center" t-att-colspan="len(quantities)">
+                                                    QUANTITIES (PRICE)
+                                                </th>
+                    </tr>
+                                        <tr>
+                                            <t t-foreach="quantities" t-as="qty">
+                                                <th class="text-end">
+                                                    <span t-out="qty"/>
+                                                </th>
+                                            </t>
+                                        </tr>
+                </thead>
+
+                <!-- BODY -->
+                <tbody>
+                    <t t-foreach="products" t-as="product">
+                        <tr>
+                            <!-- Product name -->
+                            <td class="fw-bold">
+
+                                <div>
+                                    <div t-out="product['name']"/>
+
+                                    <t t-set="desc" t-value="
+            env['product.product'].browse(product['id']).product_tmpl_id.description_sale
+            if not is_product_tmpl
+            else env['product.template'].browse(product['id']).description_sale
+        "/>
+
+                                    <div t-if="desc" style="font-size:11px; color:#555;">
+                                        <span t-out="desc"/>
+                                    </div>
+                                </div>
+
+                            </td>
+
+                            <!-- UOM -->
+                            <td t-out="product['uom']"/>
+
+<!--                    =========Quantity (Price)========-->
+                            <t t-foreach="quantities" t-as="qty">
+                                <td class="text-end">
+                                    <span t-out="product['price'][qty]"
+                                          t-options="{'widget':'monetary','display_currency':pricelist.currency_id}"/>
+                                </td>
+                            </t>
+                        </tr>
+                    </t>
+                </tbody>
+
+            </table>
+
+        </xpath>
+
+    </template>
+</odoo>

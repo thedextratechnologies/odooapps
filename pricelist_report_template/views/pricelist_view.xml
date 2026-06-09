@@ -1,0 +1,32 @@
+<odoo>
+    <record id="view_pricelist_form_inherit_peralloy" model="ir.ui.view">
+        <field name="name">product.pricelist.form.peralloy</field>
+        <field name="model">product.pricelist</field>
+
+        <!-- ✅ CORRECT ODOO 19 VIEW ID -->
+        <field name="inherit_id" ref="product.product_pricelist_view"/>
+
+        <field name="arch" type="xml">
+
+              <!-- HEADER-LA PRINT BUTTON ADD -->
+            <xpath expr="//header" position="inside">
+
+                <!-- WITH VARIANT -->
+<!--                <button name="action_print_with_variants"-->
+<!--                        type="object"-->
+<!--                        string="Print With Variant"-->
+<!--                        class="btn-primary"/>-->
+
+            </xpath>
+
+            <xpath expr="//sheet" position="inside">
+                <group string="Customer Details">
+                    <field name="pricelist_name"/>
+                    <field name="document_no"/>
+                    <field name="customer_name"/>
+<!--                    <field name="confidential_note"/>-->
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
