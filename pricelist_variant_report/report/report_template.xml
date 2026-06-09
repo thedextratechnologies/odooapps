@@ -1,0 +1,216 @@
+<odoo>
+    <template id="report_variant_pricelist">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+
+                <div class="page" style="margin-top:0;">
+
+                    <!-- HEADER -->
+                    <table style="width:100%; margin:0 0 20px 0;">
+                        <tr>
+
+                            <td style="width:60%; vertical-align:top;">
+
+                                <div style="background:#e56f2d;
+                                        color:white;
+                                        padding:16px;">
+
+                                    <div style="font-size:22px;
+                                            font-weight:bold;">
+
+                                        <b>Price List:</b>
+                                        <t t-esc="pricelist_name"/>
+
+                                    </div>
+
+                                    <div>
+                                        <b>Document No:</b>
+                                        <t t-esc="document_no"/>
+                                    </div>
+
+                                    <div>
+                                        <b>Customer Name:</b>
+                                        <t t-esc="customer_name"/>
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td style="width:40%;
+                                   text-align:right;
+                                   padding-top:10px;
+                                   padding-right:30px;">
+
+                                <img t-if="env.company.logo"
+                                     t-att-src="image_data_uri(env.company.logo)"
+                                     style="max-height:90px;"/>
+
+                            </td>
+
+                        </tr>
+                    </table>
+
+                    <!-- CONFIDENTIAL -->
+                    <div style="background:#d9d9d9;
+                            padding:10px;
+                            margin-bottom:15px;
+                            font-size:12px;">
+
+                        <b>CONFIDENTIAL -</b>
+
+                        <div>
+                             For authorized recipients only. Pricing, product availability, and specifications are subject to change without prior notice
+                        </div>
+
+                    </div>
+
+                    <!-- TABLE -->
+<!-- TABLE -->
+                    <table class="table table-bordered"
+                           style="width:100%;
+              table-layout:fixed;
+              border-collapse:collapse;">
+
+                        <thead>
+
+                            <tr>
+
+                                <!-- PRODUCT -->
+                                <th style="width:22%;
+                       font-weight:bold;">
+
+                                    Product
+
+                                </th>
+
+                                <!-- DESCRIPTION (INCREASED MORE) -->
+                                <th style="width:48%;
+                       font-weight:normal;">
+
+                                    Description
+
+                                </th>
+
+                                <!-- VARIANTS (REDUCED) -->
+                                <th style="width:12%;
+                       font-weight:normal;">
+
+                                    Variants
+
+                                </th>
+
+                                <!-- UOM (REDUCED) -->
+                                <th style="width:8%;
+                       font-weight:normal;">
+
+                                    UOM
+
+                                </th>
+
+                                <!-- PRICE (REDUCED) -->
+                                <th style="width:12%;
+                       font-weight:normal;
+                       text-align:right;">
+
+                                    Price
+
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <t t-foreach="products" t-as="product">
+
+                                <tr>
+
+                                    <!-- PRODUCT -->
+                                    <td style="font-weight:bold;
+                           word-wrap:break-word;">
+
+                                        <span t-out="product['name']"/>
+
+                                    </td>
+
+                                    <!-- DESCRIPTION -->
+                                    <td style="word-wrap:break-word;">
+
+                                        <span t-out="product.get('description')"/>
+
+                                    </td>
+
+                                    <!-- VARIANTS -->
+                                    <td style="word-wrap:break-word;">
+
+                                        <t t-set="vals"
+                                           t-value="product.get('attribute_values', [])"/>
+
+                                        <span t-esc="', '.join(vals)"/>
+
+                                    </td>
+
+                                    <!-- UOM -->
+                                    <td>
+
+                                        <span t-out="product['uom']"/>
+
+                                    </td>
+
+                                    <!-- PRICE -->
+                                    <td class="text-end"
+                                        style="white-space:nowrap;">
+
+                                        <t t-foreach="quantities" t-as="qty">
+
+                                            <div>
+
+                                                <span t-out="product['price'].get(1, 0)"
+                                                      t-options="{
+                                      'widget':'monetary',
+                                      'display_currency':pricelist.currency_id
+                                  }"/>
+
+                                            </div>
+
+                                        </t>
+
+                                    </td>
+
+                                </tr>
+
+                            </t>
+
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </t>
+        </t>
+    </template>
+    <record id="report_pricelist_product_variant" model="ir.actions.report">
+        <field name="name">Pricelist Product Variant</field>
+        <field name="model">product.pricelist</field>
+        <field name="report_type">qweb-pdf</field>
+
+        <!-- ✅ MUST MATCH PYTHON -->
+        <field name="report_name">pricelist_variant_report.report_variant_pricelist</field>
+        <field name="report_file">pricelist_variant_report.report_variant_pricelist</field>
+
+        <field name="print_report_name">'Pricelist - %s' % (object.name)</field>
+    </record>
+
+
+    <record id="report_pricelist_product_variant_html" model="ir.actions.report">
+        <field name="name">Pricelist Product Variant (Preview)</field>
+        <field name="model">product.pricelist</field>
+        <field name="report_type">qweb-html</field>
+
+        <!-- ✅ SAME NAME -->
+        <field name="report_name">pricelist_variant_report.report_variant_pricelist</field>
+        <field name="report_file">pricelist_variant_report.report_variant_pricelist</field>
+    </record>
+</odoo>

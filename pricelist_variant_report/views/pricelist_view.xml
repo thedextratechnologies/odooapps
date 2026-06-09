@@ -1,0 +1,17 @@
+<odoo>
+    <record id="view_pricelist_form_inherit_variant_btn" model="ir.ui.view">
+        <field name="name">product.pricelist.form.variant.button</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//header" position="inside">
+                <button name="action_open_variant_wizard"
+                        type="object"
+                        string="Print Variant Wise"
+                        class="btn-primary"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
