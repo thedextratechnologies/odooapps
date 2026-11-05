@@ -16,5 +16,5 @@ sales order confirmation when an enabled partner credit limit would be exceeded.
     "post_init_hook": "post_init_hook",
     'images': ['static/description/banner.gif'],
     "installable": True,
-    "application": False,
+    "application": True,
 }
