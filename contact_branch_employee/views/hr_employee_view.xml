@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ==========================================================
+         Employee Form
+    ========================================================== -->
+
+    <record id="view_employee_form_hq_branch" model="ir.ui.view">
+        <field name="name">hr.employee.form.hq.branch</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Insert after Work Email -->
+            <xpath expr="//div[@id='o_work_information']/group[1]" position="after">
+
+                <group string="Organization Assignment">
+
+                    <field name="assignment_type"/>
+
+                    <field name="contact_id"/>
+
+                    <field name="headquarter_id"
+                           invisible="assignment_type == 'branch'"/>
+
+                    <field name="branch_id"
+                           invisible="assignment_type == 'hq'"
+                           domain="[('headquarter_id','=',headquarter_id)]"/>
+
+                    <field name="company_partner_id" readonly="1"/>
+
+                </group>
+            </xpath>
+
+        </field>
+    </record>
+
+
+    <!-- ==========================================================
+         Employee List
+    ========================================================== -->
+
+    <record id="view_employee_tree_hq_branch" model="ir.ui.view">
+        <field name="name">hr.employee.tree.hq.branch</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_tree"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='department_id']" position="after">
+
+                <field name="assignment_type" optional="show"/>
+
+                <field name="headquarter_id" optional="show"/>
+
+                <field name="branch_id" optional="show"/>
+
+            </xpath>
+
+        </field>
+    </record>
+
+
+    <!-- ==========================================================
+         Employee Search
+    ========================================================== -->
+
+    <record id="view_employee_filter_hq_branch" model="ir.ui.view">
+        <field name="name">hr.employee.search.hq.branch</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//search" position="inside">
+
+                <separator/>
+
+                <filter
+                        name="filter_hq_employee"
+                        string="HQ Employees"
+                        domain="[('assignment_type','=','hq')]"/>
+
+                <filter
+                        name="filter_branch_employee"
+                        string="Branch Employees"
+                        domain="[('assignment_type','=','branch')]"/>
+
+                <field name="headquarter_id"/>
+
+                <field name="branch_id"/>
+
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

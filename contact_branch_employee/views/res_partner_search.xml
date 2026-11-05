@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ==========================================================
+         Partner Search - Headquarter / Branch
+    =========================================================== -->
+
+    <record id="view_res_partner_filter_hq_branch" model="ir.ui.view">
+        <field name="name">res.partner.search.hq.branch</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+
+            <!-- Filters -->
+
+            <xpath expr="//filter[@name='customer']" position="after">
+
+                <separator/>
+
+                <filter
+                    name="headquarter_filter"
+                    string="Headquarters"
+                    domain="[('is_headquarter','=',True)]"/>
+
+                <filter
+                    name="branch_filter"
+                    string="Branches"
+                    domain="[('is_branch','=',True)]"/>
+
+            </xpath>
+
+            <!-- Search Fields -->
+
+            <xpath expr="//search" position="inside">
+
+                <field name="headquarter_id"/>
+
+                <field name="is_headquarter"/>
+
+                <field name="is_branch"/>
+
+            </xpath>
+
+            <!-- Group By -->
+
+            <xpath expr="//group[@name='group_by']" position="inside">
+
+                <filter
+                    string="Headquarter"
+                    name="group_by_headquarter"
+                    context="{'group_by':'headquarter_id'}"/>
+
+                <filter
+                    string="Company Type"
+                    name="group_company_type"
+                    context="{'group_by':'company_type'}"/>
+
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
