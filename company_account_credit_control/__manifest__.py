@@ -8,6 +8,8 @@ Automatically assigns unique account numbers to company partners and blocks
 sales order confirmation when an enabled partner credit limit would be exceeded.
 ''',
     "license": "LGPL-3",
+    "author": "Dextra Technologies",
+    "website": "https://www.dextratechnologies.com",
     "depends": ["sale_management", "account"],
     "data": [
         "data/ir_sequence.xml",
