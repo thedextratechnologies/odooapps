@@ -27,10 +27,7 @@
         "views/hr_employee_view.xml",
     ],
 
-    "images": [
-        "static/description/banner.gif",
-    ],
-
+    "images": ['static/description/banner.gif'],
     "installable": True,
     "application": True,
 }
