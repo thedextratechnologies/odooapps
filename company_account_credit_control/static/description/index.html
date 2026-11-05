@@ -1,105 +1,211 @@
-<section style="font-family: Arial, Helvetica, sans-serif; color:#2b2f3a; max-width:1000px; margin:0 auto; padding:0 15px; line-height:1.6;">
 
-  <!-- Hero -->
-  <div style="text-align:center; padding:30px 0 10px;">
-    <img src="banner.gif" alt="Company Account Number &amp; Credit Control" style="max-width:100%; border-radius:10px;"/>
-    <h1 style="font-size:34px; margin:24px 0 6px; color:#14213d;">Company Account Number &amp; Credit Control</h1>
-    <p style="font-size:18px; color:#5b6070; margin:0;">Unique account numbers for every company and a hard credit-limit stop on Sales Orders.</p>
-    <p style="margin:16px 0 0;">
-      <span style="display:inline-block; background:#714B67; color:#fff; padding:6px 16px; border-radius:20px; font-size:14px; margin:3px;">Odoo 19.0</span>
-      <span style="display:inline-block; background:#009688; color:#fff; padding:6px 16px; border-radius:20px; font-size:14px; margin:3px;">Enterprise &amp; Community</span>
-      <span style="display:inline-block; background:#14213d; color:#fff; padding:6px 16px; border-radius:20px; font-size:14px; margin:3px;">LGPL-3</span>
-    </p>
-  </div>
+<div style="font-family:Arial,Helvetica,sans-serif;color:#333;max-width:1000px;margin:auto;line-height:1.6;padding:15px;">
 
-  <hr style="border:0; border-top:1px solid #e3e5ea; margin:30px 0;"/>
+    <!-- HERO SECTION -->
+    <div style="text-align:center;padding:25px 10px;">
+        <img src="banner.gif"
+             alt="Company Account Number and Credit Control"
+             style="width:100%;max-width:950px;height:auto;border-radius:8px;"/>
 
-  <!-- Overview -->
-  <div style="text-align:center; margin-bottom:30px;">
-    <h2 style="color:#14213d; font-size:26px;">Know every customer. Control every exposure.</h2>
-    <p style="font-size:16px; color:#5b6070; max-width:760px; margin:10px auto;">
-      This module gives each credit-controlled company a unique, auto-generated account number
-      (<b>P00001</b>, <b>P00002</b>, ...) and enforces your customer credit limits
-      strictly, so a Sales Order can no longer be confirmed once a customer's exposure
-      goes over their limit.
-    </p>
-  </div>
+        <h1 style="color:#14213d;font-size:30px;margin:22px 0 8px;">
+            Company Account Number &amp; Credit Control
+        </h1>
 
-  <!-- Feature cards -->
-  <div style="display:flex; flex-wrap:wrap; margin:0 -10px;">
+        <p style="font-size:17px;color:#555;margin:8px 0;">
+            Unique customer account numbers and reliable credit-limit protection.
+        </p>
 
-    <div style="flex:1 1 300px; margin:10px; padding:22px; border:1px solid #e3e5ea; border-radius:10px; background:#fafbfc;">
-      <h3 style="margin-top:0; color:#009688; font-size:20px;">&#128290; Automatic Account Numbers</h3>
-      <ul style="padding-left:18px; margin:0; color:#444;">
-        <li>Sequential numbers <b>P00001, P00002, ...</b> for companies with <b>Partner Limit</b> enabled</li>
-        <li>Guaranteed unique (database constraint)</li>
-        <li>Existing eligible companies numbered automatically on install</li>
-        <li>Number assigned instantly when Partner Limit is switched on</li>
-        <li>Individual contacts and companies without a limit are left untouched</li>
-      </ul>
+        <p style="margin:15px 0;">
+            <span style="background:#714B67;color:#fff;padding:6px 14px;border-radius:5px;margin:4px;display:inline-block;">
+                Odoo 19.0
+            </span>
+            <span style="background:#009688;color:#fff;padding:6px 14px;border-radius:5px;margin:4px;display:inline-block;">
+                Community &amp; Enterprise
+            </span>
+            <span style="background:#14213d;color:#fff;padding:6px 14px;border-radius:5px;margin:4px;display:inline-block;">
+                LGPL-3
+            </span>
+        </p>
+
+        <!-- COMPANY BRANDING -->
+        <div style="margin:25px auto 5px;padding:15px;border-top:2px solid #714B67;border-bottom:2px solid #714B67;max-width:650px;">
+            <p style="font-size:13px;color:#777;margin:0;">DEVELOPED AND MAINTAINED BY</p>
+            <h2 style="font-size:23px;color:#714B67;margin:5px 0;">
+                Dextra Technologies
+            </h2>
+            <a href="https://www.dextratechnologies.com/"
+               style="color:#008f9c;text-decoration:none;font-weight:bold;">
+                www.dextratechnologies.com
+            </a>
+        </div>
     </div>
 
-    <div style="flex:1 1 300px; margin:10px; padding:22px; border:1px solid #e3e5ea; border-radius:10px; background:#fafbfc;">
-      <h3 style="margin-top:0; color:#c62828; font-size:20px;">&#128737; Strict Credit Control</h3>
-      <ul style="padding-left:18px; margin:0; color:#444;">
-        <li>Uses Odoo's standard <b>Partner Limit</b> setting</li>
-        <li>Blocks Sales Order confirmation when the limit would be exceeded</li>
-        <li>Clear error message with the full breakdown</li>
-        <li>Partner Limit off? Standard behaviour, nothing changes</li>
-        <li>Batch confirmation is checked as a group &ndash; no bypass</li>
-      </ul>
+    <hr style="border:0;border-top:1px solid #ddd;margin:25px 0;"/>
+
+    <!-- OVERVIEW -->
+    <div style="text-align:center;padding:10px;">
+        <h2 style="font-size:25px;color:#14213d;">
+            Know Every Customer. Control Every Exposure.
+        </h2>
+
+        <p style="font-size:15px;color:#555;max-width:760px;margin:10px auto;">
+            This module automatically assigns a unique account number
+            (P00001, P00002, ...) to every credit-controlled company.
+            It also enforces customer credit limits and prevents Sales Order
+            confirmation when the customer's credit exposure exceeds the
+            configured limit.
+        </p>
     </div>
 
-  </div>
+    <!-- FEATURES -->
+    <h2 style="text-align:center;color:#14213d;font-size:25px;margin-top:30px;">
+        Key Features
+    </h2>
 
-  <!-- Screenshots -->
-  <div style="margin:40px 0 10px;">
-    <h2 style="text-align:center; color:#14213d; font-size:26px;">Screenshots</h2>
+    <table style="width:100%;border-collapse:separate;border-spacing:10px;">
+        <tr>
+            <td style="width:50%;vertical-align:top;padding:18px;border:1px solid #ddd;border-radius:8px;background:#f8fafc;">
+                <h3 style="color:#009688;margin-top:0;">
+                    Automatic Account Numbers
+                </h3>
+                <ul style="padding-left:20px;color:#444;">
+                    <li>Sequential account numbers: P00001, P00002, ...</li>
+                    <li>Unique account numbers enforced by the database.</li>
+                    <li>Existing eligible companies are numbered automatically during installation.</li>
+                    <li>Numbers are assigned when Partner Limit is enabled.</li>
+                    <li>Contacts and companies without a credit limit remain untouched.</li>
+                </ul>
+            </td>
 
-    <div style="margin:24px 0; text-align:center;">
-      <img src="Accountnumber.png" alt="Account Number on the company form" style="max-width:100%; border:1px solid #e3e5ea; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.12);"/>
-      <p style="margin:10px 0 0; color:#5b6070; font-size:15px;"><b>1. Automatic account number</b> &ndash; every credit-controlled company gets a unique, read-only Account Number (here <b>P00020</b>).</p>
+            <td style="width:50%;vertical-align:top;padding:18px;border:1px solid #ddd;border-radius:8px;background:#f8fafc;">
+                <h3 style="color:#c62828;margin-top:0;">
+                    Strict Credit Control
+                </h3>
+                <ul style="padding-left:20px;color:#444;">
+                    <li>Uses Odoo's standard Partner Limit setting.</li>
+                    <li>Blocks Sales Order confirmation when the credit limit would be exceeded.</li>
+                    <li>Displays a clear validation message.</li>
+                    <li>Standard Odoo behaviour remains unchanged when Partner Limit is disabled.</li>
+                    <li>Batch Sales Order confirmation is checked together.</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+    <hr style="border:0;border-top:1px solid #ddd;margin:30px 0;"/>
+
+    <!-- SCREENSHOTS -->
+    <h2 style="text-align:center;color:#14213d;font-size:25px;">
+        Module Screenshots
+    </h2>
+
+    <div style="text-align:center;margin:25px 0;">
+        <img src="Accountnumber.png"
+             alt="Automatic Company Account Number"
+             style="width:100%;max-width:850px;height:auto;border:1px solid #ddd;border-radius:6px;"/>
+        <p style="color:#555;font-size:14px;">
+            <b>1. Automatic Account Number</b><br/>
+            Every eligible company receives a unique, automatically generated account number.
+        </p>
     </div>
 
-    <div style="margin:36px 0; text-align:center;">
-      <img src="Partner Limit.png" alt="Partner Limit on the Accounting tab" style="max-width:100%; border:1px solid #e3e5ea; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.12);"/>
-      <p style="margin:10px 0 0; color:#5b6070; font-size:15px;"><b>2. Credit limit setup</b> &ndash; enable Odoo's standard <i>Partner Limit</i> in the Accounting tab and enter the amount. No extra configuration screens.</p>
+    <div style="text-align:center;margin:30px 0;">
+        <img src="Partner Limit.png"
+             alt="Partner Credit Limit Configuration"
+             style="width:100%;max-width:850px;height:auto;border:1px solid #ddd;border-radius:6px;"/>
+        <p style="color:#555;font-size:14px;">
+            <b>2. Credit Limit Configuration</b><br/>
+            Enable Partner Limit on the Accounting tab and configure the customer's credit limit.
+        </p>
     </div>
 
-    <div style="margin:36px 0; text-align:center;">
-      <img src="Saleorderblock.png" alt="Sales order confirmation blocked" style="max-width:100%; border:1px solid #e3e5ea; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.12);"/>
-      <p style="margin:10px 0 0; color:#5b6070; font-size:15px;"><b>3. Confirmation blocked</b> &ndash; when the order would push the customer over their limit, confirming the Sales Order is stopped.</p>
+    <div style="text-align:center;margin:30px 0;">
+        <img src="Saleorderblock.png"
+             alt="Sales Order Credit Limit Validation"
+             style="width:100%;max-width:850px;height:auto;border:1px solid #ddd;border-radius:6px;"/>
+        <p style="color:#555;font-size:14px;">
+            <b>3. Sales Order Validation</b><br/>
+            Sales Orders exceeding the customer's credit limit cannot be confirmed.
+        </p>
     </div>
-  </div>
 
-  <!-- Setup -->
-  <div style="margin:40px 0;">
-    <h2 style="text-align:center; color:#14213d; font-size:26px;">Set up in 3 steps</h2>
-    <div style="display:flex; flex-wrap:wrap; margin:0 -10px;">
-      <div style="flex:1 1 220px; margin:10px; padding:20px; border-radius:10px; background:#e0f2f1; text-align:center;">
-        <div style="font-size:30px; font-weight:bold; color:#009688;">1</div>
-        <b>Install</b><br/>Install the module. Existing companies with Partner Limit are numbered automatically.
-      </div>
-      <div style="flex:1 1 220px; margin:10px; padding:20px; border-radius:10px; background:#e0f2f1; text-align:center;">
-        <div style="font-size:30px; font-weight:bold; color:#009688;">2</div>
-        <b>Set a limit</b><br/>On a company, enable <i>Partner Limit</i> and enter the credit limit. The account number appears automatically.
-      </div>
-      <div style="flex:1 1 220px; margin:10px; padding:20px; border-radius:10px; background:#e0f2f1; text-align:center;">
-        <div style="font-size:30px; font-weight:bold; color:#009688;">3</div>
-        <b>Sell safely</b><br/>Orders that push the customer over the limit can't be confirmed.
-      </div>
+    <hr style="border:0;border-top:1px solid #ddd;margin:30px 0;"/>
+
+    <!-- INSTALLATION -->
+    <h2 style="text-align:center;color:#14213d;font-size:25px;">
+        Set Up in 3 Easy Steps
+    </h2>
+
+    <table style="width:100%;border-collapse:separate;border-spacing:8px;">
+        <tr>
+            <td style="width:33%;vertical-align:top;text-align:center;padding:18px;background:#e0f2f1;border-radius:8px;">
+                <h2 style="font-size:30px;color:#009688;margin:0;">1</h2>
+                <h3 style="margin:5px 0;color:#14213d;">Install</h3>
+                <p style="font-size:14px;margin:5px 0;">
+                    Install the module. Existing eligible companies receive account numbers automatically.
+                </p>
+            </td>
+
+            <td style="width:33%;vertical-align:top;text-align:center;padding:18px;background:#e0f2f1;border-radius:8px;">
+                <h2 style="font-size:30px;color:#009688;margin:0;">2</h2>
+                <h3 style="margin:5px 0;color:#14213d;">Set a Limit</h3>
+                <p style="font-size:14px;margin:5px 0;">
+                    Enable Partner Limit on the company and enter the credit limit.
+                </p>
+            </td>
+
+            <td style="width:33%;vertical-align:top;text-align:center;padding:18px;background:#e0f2f1;border-radius:8px;">
+                <h2 style="font-size:30px;color:#009688;margin:0;">3</h2>
+                <h3 style="margin:5px 0;color:#14213d;">Sell Safely</h3>
+                <p style="font-size:14px;margin:5px 0;">
+                    Orders exceeding the credit limit are prevented from confirmation.
+                </p>
+            </td>
+        </tr>
+    </table>
+
+    <!-- SUPPORT -->
+    <div style="margin:35px 0 15px;padding:25px 15px;background:#f2edf1;border:1px solid #d8c7d3;border-radius:8px;text-align:center;">
+
+        <h2 style="font-size:23px;color:#714B67;margin:0 0 10px;">
+            Need Help or Customization?
+        </h2>
+
+        <p style="color:#444;margin:5px 0 15px;">
+            For bug reports, installation assistance or customization requests,
+            please contact our team.
+        </p>
+
+        <h3 style="color:#714B67;font-size:21px;margin:10px 0;">
+            Dextra Technologies
+        </h3>
+
+        <p style="margin:6px 0;color:#333;">
+            <b>Website:</b>
+            <a href="https://www.dextratechnologies.com/"
+               style="color:#008f9c;text-decoration:none;">
+                www.dextratechnologies.com
+            </a>
+        </p>
+
+        <p style="margin:6px 0;color:#333;">
+            <b>Email:</b>
+            <a href="mailto:thedextratechnologies@gmail.com"
+               style="color:#008f9c;text-decoration:none;">
+                thedextratechnologies@gmail.com
+            </a>
+        </p>
+
+        <p style="margin:6px 0;color:#333;">
+            <b>Phone:</b> +91 7397261418
+        </p>
+
+        <hr style="border:0;border-top:1px solid #d8c7d3;margin:18px 0;"/>
+
+        <p style="font-size:12px;color:#777;margin:0;">
+            © Dextra Technologies | Odoo 19.0 | LGPL-3
+        </p>
     </div>
-  </div>
 
+</div>
 
-  <!-- Support -->
-  <div style="margin:40px 0 30px; padding:26px; background:#714B67; color:#fff; border-radius:10px; text-align:center;">
-    <h3 style="margin:0 0 8px; font-size:22px;">Need help or a customization?</h3>
-    <p style="margin:0 0 14px;">For bugs, setup assistance, or customization requests, contact us.</p>
-    <p style="margin:4px 0;"><b>Dextra Technologies</b></p>
-    <p style="margin:4px 0;">Website: <a href="https://www.dextratechnologies.com/" style="color:#80deea;">https://www.dextratechnologies.com/</a></p>
-    <p style="margin:4px 0;">Email: <a href="mailto:thedextratechnologies@gmail.com" style="color:#80deea;">thedextratechnologies@gmail.com</a></p>
-    <p style="margin:4px 0;">Phone: +91 7397261418</p>
-  </div>
-
-</section>
